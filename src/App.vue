@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Head />
-    <div>新的项目</div>
-    <Foot />
+    <router-view />
+    <Foot v-show="$route.path == '/home' || $route.path == '/search'" />
   </div>
 </template>
 

@@ -1,20 +1,12 @@
 <template>
   <!-- 头部 -->
   <header class="header">
-    <!-- 头部的第一行 -->
     <div class="top">
       <div class="container">
         <div class="loginList">
-          <p>尚品汇欢迎您！</p>
+          <p>路品购欢迎您！</p>
           <p>
             <span>请</span>
-            <!-- 声明式导航务必要有to属性 -->
-            <!-- 
-              路由的跳转有两种方式
-                1.声明式导航router-link，可以进行路由的跳转
-                2.编程式导航push|replace，可以进行路由跳转
-                声明式导航能够做的，编程式导航都能做，编程式导航除了可以进行路由跳转，还可以进行一些业务逻辑
-             -->
             <router-link to="/login">登录</router-link>
             <router-link to="/register" class="register">免费注册</router-link>
           </p>
@@ -22,10 +14,10 @@
         <div class="typeList">
           <a href="###">我的订单</a>
           <a href="###">我的购物车</a>
-          <a href="###">我的尚品汇</a>
-          <a href="###">尚品汇会员</a>
+          <a href="###">我的路品购</a>
+          <a href="###">路品购会员</a>
           <a href="###">企业采购</a>
-          <a href="###">关注尚品汇</a>
+          <a href="###">关注路品购</a>
           <a href="###">合作招商</a>
           <a href="###">商家后台</a>
         </div>
@@ -41,7 +33,7 @@
       <div class="searchArea">
         <form action="###" class="searchForm">
           <input
-            v-model="keyword"
+            v-model.trim="keyword"
             type="text"
             id="autocomplete"
             class="input-error input-xxlarge"
@@ -61,64 +53,31 @@
 
 <script>
 export default {
-  name: 'ahead',
+  name: "ahead",
   data() {
     return {
-      keyword: '',
-    }
+      keyword: "",
+    };
   },
   mounted() {
     // 通过全局事件总线清除关键字
-    this.$bus.$on('clear', () => {
-      this.keyword = ''
-    })
+    // this.$bus.$on("clear", () => {
+    //   this.keyword = "";
+    // });
   },
   methods: {
-    /**搜索按钮的回调函数 */
-    /**
-     *
-     * 路由的跳转
-     * A->B
-     * 声明式导航：router-link（务必要有to属性），可以实现路由的跳转
-     * 编程式导航：利用的是组件实例的$router.push|replace方法，可以实现路由的跳转（可以写一些自己的业务逻辑）
-     *
-     * 路由传递参数：
-     *
-     * params参数：属于路径当中的一部分，需要注意在配置路由的时间需要占位
-     * query参数：不属于路径当中的一部分，类似于ajax中的queryString 类似：/home?k=v&kv=,不需要占位
-     *
-     *
-     * 第一种：字符串形式
-     * 第二种：模板字符串
-     * 第三种：对象形式
-     */
     goSearch() {
-      // this.$router.push('/search') //不传参
-      // 第一种：字符串形式
-      // this.$router.push(
-      //   '/search/' + this.keyword + '?k=' + this.keyword.toUpperCase()
-      // )
-      //第二种：模板字符串
-      // this.$router.push(
-      //   `/search/${this.keyword}?k=${this.keyword.toUpperCase()}`
-      // )
-      // 第三种：对象形式
-
-      if (this.$route.query) {
-        let location = {
-          name: 'search',
-          params: {
-            keyword: this.keyword || undefined,
-          },
-        }
-        // 携带query参数
-        location.query = this.$route.query
-        // 路由跳转
-        this.$router.push(location)
-      }
+      let location = {
+        name: "search",
+        params: {
+          keyword: this.keyword,
+        },
+      };
+      // 路由跳转
+      this.$router.push(location);
     },
   },
-}
+};
 </script>
 
 <style scoped lang="less">
