@@ -79,20 +79,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
+import { mapState } from "vuex";
+import Swiper from "swiper";
 export default {
-  name: 'ListContainer',
+  name: "ListContainer",
   mounted() {
     // 发起请求mock模拟数据
-    // this.$store.dispatch('getBannerList')
+    this.$store.dispatch("ahome/getBannerList");
   },
   computed: {
-    ...mapState({
-      // bannerList: (state) => state.home.bannerList,
-    }),
+    ...mapState("ahome", ["bannerList"]),
   },
-}
+};
 </script>
 
 <style scoped lang="less">

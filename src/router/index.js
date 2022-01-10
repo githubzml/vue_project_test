@@ -9,6 +9,8 @@ import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import Search from "@/pages/Search";
 
+import Test from "@/components/Test";
+
 export default new VueRouter({
   routes: [{
     path: "/home",
@@ -26,6 +28,11 @@ export default new VueRouter({
     path: "/search",
     name: "search",
     component: Search
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: Test
   },
   {
     path: "*",

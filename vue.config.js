@@ -6,6 +6,14 @@ module.exports = {
   // 服务器已经启动后自动打开浏览器
   devServer: {
     open: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        pathRewrite: { "^/api": "" },
+        ws: true, //用于支持webscoket
+        changeOrigin: true //用于控制请求中的host值
+      },
+    }
   },
   // 关闭语法检测
   lintOnSave: false,

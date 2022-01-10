@@ -1,5 +1,7 @@
 <template>
   <div>
+    <!-- <p>123</p>
+    <p>{{ num }}</p> -->
     <TypeNav />
     <ListContainer />
     <Recommend />
@@ -20,10 +22,15 @@ import Rank from "./Rank";
 import Like from "./Like";
 import Floor from "./Floor";
 import Brand from "./Brand";
+
+import { aa } from "../../api/index";
+
 export default {
   name: "Home",
   data() {
-    floorsList: [];
+    return {
+      floorsList: [],
+    };
   },
   components: {
     ListContainer,
@@ -36,11 +43,13 @@ export default {
 
   mounted() {
     // this.$store.dispatch('receiveFloors')
+    aa().then((res) => {
+      // console.log("res", res);
+    });
+    console.log("this", this.$store.state);
   },
   computed: {
-    ...mapState({
-      // floorsList: (state) => state.home.floors,
-    }),
+    ...mapState("ahome", ["num"]),
   },
 };
 </script>

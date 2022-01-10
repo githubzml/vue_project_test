@@ -1,6 +1,5 @@
 <template>
   <div class="type-nav">
-    <!-- <h1>{{ categoryList }}</h1> -->
     <div class="container">
       <!-- 事件委派|事件委托 -->
       <div @mouseleave="leaveIndex" @mouseenter="enterShow">
@@ -78,19 +77,18 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 // 引入lodash全部的功能函数引入
 // import _ from 'lodash'
-import throttle from 'lodash/throttle'
+import throttle from "lodash/throttle";
 export default {
-  name: 'TypeNav', // 组件名字
+  name: "TypeNav", // 组件名字
   data() {
     return {
       // 存储用户鼠标移上哪一个一级分类
       currentIndex: -1,
       show: true,
-      categoryList:[]
-    }
+    };
   },
   methods: {
     // 鼠标进入修改响应式currentIndex属性
@@ -103,14 +101,14 @@ export default {
        * 就是由于用户行为过快，导致浏览器反应不过来，如果当前回调函数中有大量的业务，有可能出现卡顿现象
        *
        */
-      this.currentIndex = index
+      this.currentIndex = index;
     }, 50),
     // 一级分类鼠标移除的事件
     leaveIndex() {
-      this.currentIndex = -1
+      this.currentIndex = -1;
       // 只有当前路由在search才进行操作
-      if (this.$route.path !== '/home') {
-        this.show = false
+      if (this.$route.path !== "/home") {
+        this.show = false;
       }
     },
     goSearch(event) {
@@ -122,39 +120,39 @@ export default {
        * 事件委派是把全部的子节点的事件委派给父亲节点
        *
        */
-      let ele = event.target
+      let ele = event.target;
 
       // 获取到当前触发这个事件的节点，【需要带有data-categoryName这样的节点一定是a标签】
       // 节点有一个属性dataset属性，可以获取节点的自定义属性与属性值
-      let { categoryname, category1id, category2id, category3id } = ele.dataset
+      let { categoryname, category1id, category2id, category3id } = ele.dataset;
       // 带有data-categoryName这样的节点一定是a标签
       if (categoryname) {
         // 整理路由跳转的参数
-        let location = { name: 'search' }
-        let query = { categoryName: categoryname }
+        let location = { name: "search" };
+        let query = { categoryName: categoryname };
 
         // 一级分类、二级分类、三级分类的a标签
         if (category1id) {
-          query.category1Id = category1id
+          query.category1Id = category1id;
         } else if (category2id) {
-          query.category2Id = category2id
+          query.category2Id = category2id;
         } else if (category3id) {
-          query.category3Id = category3id
+          query.category3Id = category3id;
         }
         // 判断路由当中有没有params参数
         if (this.$route.params) {
-          location.params = this.$route.params
+          location.params = this.$route.params;
           // 动态给location配置对象添加query参数
-          location.query = query
+          location.query = query;
           // 路由跳转
-          this.$router.push(location)
+          this.$router.push(location);
         }
       }
     },
     // 当鼠标移入的时间，让商品分类列表进行展示
     enterShow() {
-      if (this.$route.path !== '/home') {
-        this.show = true
+      if (this.$route.path !== "/home") {
+        this.show = true;
       }
     },
   },
@@ -165,15 +163,9 @@ export default {
     if (this.$route.path !== '/home') this.show = false
   },
   computed: {
-    ...mapState({
-      /**
-       * 对象的写法：右侧需要的是一个函数，当使用计算属性的时间，右侧函数会立即执行一次
-       * 会注入一个参数state，即为大仓库state中的数据
-       */
-      // categoryList: (state) => state.home.categoryList,
-    }),
+    ...mapState("ahome", ["categoryList"]),
   },
-}
+};
 </script>
 
 <style lang="less" scoped>

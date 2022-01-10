@@ -67,14 +67,18 @@ export default {
   },
   methods: {
     goSearch() {
-      let location = {
-        name: "search",
-        params: {
-          keyword: this.keyword,
-        },
-      };
-      // 路由跳转
-      this.$router.push(location);
+      if (this.$route.query) {
+        let location = {
+          name: "search",
+          params: {
+            keyword: this.keyword || undefined,
+          },
+        };
+        // 携带query参数
+        location.query = this.$route.query;
+        // 路由跳转
+        this.$router.push(location);
+      }
     },
   },
 };

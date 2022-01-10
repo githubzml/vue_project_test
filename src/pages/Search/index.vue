@@ -1,12 +1,13 @@
 <template>
   <div>
-    search
-    {{ $route.params.keyword }}
+    <TypeNav />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "search",
+};
 </script>
 
 <style>
