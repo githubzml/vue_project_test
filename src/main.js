@@ -11,12 +11,24 @@ import "@/mock/MockServer.js";
 
 import "swiper/css/swiper.css";
 
-Vue.component(TypeNav.name, TypeNav)
+import Carousel from "@/components/Carousel"
+
+
+// 注册全局组件的两种写法 
+Vue.component(TypeNav.name, TypeNav);
+
+// Vue.use(Carousel) //不行
+Vue.component(Carousel.name, Carousel);
+
 
 Vue.config.productionTip = false
 
 new Vue({
     render: h => h(App),
+    beforeCreate() {
+        //全局事件总线配置
+        Vue.prototype.$bus = this;
+    },
     router,
     store
 }).$mount('#app')

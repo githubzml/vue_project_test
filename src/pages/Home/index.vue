@@ -8,7 +8,7 @@
 
     <Rank />
     <Like />
-    <!-- <Floor v-for="floor in floorsList" :key="floor.id" :list="floor" /> -->
+    <Floor v-for="floor in floors" :key="floor.id" :list="floor" />
 
     <Brand />
   </div>
@@ -42,14 +42,17 @@ export default {
   },
 
   mounted() {
-    // this.$store.dispatch('receiveFloors')
-    aa().then((res) => {
-      // console.log("res", res);
-    });
+    this.$store.dispatch("ahome/receiveFloors");
+    // 本地node测试
+    // aa().then((res) => {
+    //   // console.log("res", res);
+    // });
     console.log("this", this.$store.state);
   },
   computed: {
     ...mapState("ahome", ["num"]),
+
+    ...mapState("ahome", ["floors"]),
   },
 };
 </script>

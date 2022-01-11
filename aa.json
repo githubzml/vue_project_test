@@ -1,0 +1,13 @@
+http://82.156.11.187/api/list
+
+{
+  "category1Id": "",
+  "category2Id": "",
+  "category3Id": "",
+  "categoryName": "",
+  "order": "1:desc",
+  "pageNo": 1,
+  "pageSize": 3,
+  "props": [],
+  "trademark": ""
+}

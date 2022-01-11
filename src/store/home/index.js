@@ -1,4 +1,4 @@
-import { getBaseCategoryList, reqBanners } from "../../api"
+import { getBaseCategoryList, reqBanners, reqFloors } from "../../api"
 
 
 export default {
@@ -7,7 +7,8 @@ export default {
     name: "home",
     num: "1",
     categoryList: [],
-    bannerList: []
+    bannerList: [],
+    floors: []
   },
   actions: {
     //发起接口请求
@@ -23,7 +24,14 @@ export default {
       if (result.code === 200) {
         contxt.commit('GETBANNERLIST', result.data)
       }
-    }
+    },
+
+    async receiveFloors({ commit }) {
+      const res = await reqFloors()
+      if (res.code === 200) {
+        commit('RECEIVEFLOORS', res.data)
+      }
+    },
 
   },
   mutations: {
@@ -32,6 +40,9 @@ export default {
     },
     GETBANNERLIST(state, bannerList) {
       state.bannerList = bannerList
+    },
+    RECEIVEFLOORS(state, floors) {
+      state.floors = floors
     },
   }
 }

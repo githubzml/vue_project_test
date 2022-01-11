@@ -156,7 +156,7 @@ export default {
 
   .content {
     overflow: hidden;
-    padding: 10px;
+    // padding: 10px;
 
     ul {
       li {

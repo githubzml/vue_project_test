@@ -61,9 +61,9 @@ export default {
   },
   mounted() {
     // 通过全局事件总线清除关键字
-    // this.$bus.$on("clear", () => {
-    //   this.keyword = "";
-    // });
+    this.$bus.$on("clear", () => {
+      this.keyword = "";
+    });
   },
   methods: {
     goSearch() {
@@ -71,11 +71,14 @@ export default {
         let location = {
           name: "search",
           params: {
-            keyword: this.keyword || undefined,
+            keyword: this.keyword || "",
           },
         };
         // 携带query参数
         location.query = this.$route.query;
+
+        console.log("location", location);
+
         // 路由跳转
         this.$router.push(location);
       }

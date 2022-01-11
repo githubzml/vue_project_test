@@ -7,9 +7,18 @@ module.exports = {
   devServer: {
     open: true,
     proxy: {
+      // 本地node测试
+      //   '/api': {
+      //     target: 'http://localhost:3000',
+      //     pathRewrite: { "^/api": "" },
+      //     ws: true, //用于支持webscoket
+      //     changeOrigin: true //用于控制请求中的host值
+      //   },
+      // }
+
       '/api': {
-        target: 'http://localhost:3000',
-        pathRewrite: { "^/api": "" },
+        target: 'http://82.156.11.187',
+        // pathRewrite: { "^/api": "" },
         ws: true, //用于支持webscoket
         changeOrigin: true //用于控制请求中的host值
       },

@@ -57,10 +57,10 @@
 
 <script>
 export default {
-  name: 'Floor',
-  props: ['list'],
+  name: "Floor",
+  props: ["list"],
   mounted() {},
-}
+};
 </script>
 
 <style scoped lang="less">
@@ -68,10 +68,12 @@ export default {
   margin-top: 15px;
 
   .py-container {
+    // height: 60px;
     width: 1200px;
     margin: 0 auto;
 
     .title {
+      height: 35px;
       .fl {
         float: left;
         color: #c81623;
@@ -98,7 +100,7 @@ export default {
               background-color: #fff;
 
               &::after {
-                content: '|';
+                content: "|";
                 padding: 0 10px;
               }
             }
@@ -106,7 +108,7 @@ export default {
             &:nth-child(7) {
               a {
                 &::after {
-                  content: '';
+                  content: "";
                 }
               }
             }
@@ -136,6 +138,7 @@ export default {
             background: #f7f7f7;
 
             .jd-list {
+              width: 210px;
               padding: 15px 0;
               overflow: hidden;
 

@@ -128,7 +128,13 @@ export default {
       // 带有data-categoryName这样的节点一定是a标签
       if (categoryname) {
         // 整理路由跳转的参数
-        let location = { name: "search" };
+        let location = {
+          name: "search",
+          params: {
+            keyword: undefined, //占位符 但是要传值 undefined 对象中的某个属性值为undefined 是不会传递给后端的
+          },
+        };
+
         let query = { categoryName: categoryname };
 
         // 一级分类、二级分类、三级分类的a标签
@@ -140,13 +146,11 @@ export default {
           query.category3Id = category3id;
         }
         // 判断路由当中有没有params参数
-        if (this.$route.params) {
-          location.params = this.$route.params;
-          // 动态给location配置对象添加query参数
-          location.query = query;
-          // 路由跳转
-          this.$router.push(location);
-        }
+
+        // 动态给location配置对象添加query参数
+        location.query = query;
+        // 路由跳转
+        this.$router.push(location);
       }
     },
     // 当鼠标移入的时间，让商品分类列表进行展示
@@ -160,7 +164,7 @@ export default {
   mounted() {
     // 当组件挂载完毕，show属性变为false
     // 如果不是Home组件路由，将typeNav进行隐藏
-    if (this.$route.path !== '/home') this.show = false
+    if (this.$route.path !== "/home") this.show = false;
   },
   computed: {
     ...mapState("ahome", ["categoryList"]),

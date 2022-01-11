@@ -3,7 +3,7 @@
     <div class="sortList clearfix">
       <div class="center">
         <!--banner轮播-->
-        <!-- <Carousel :list="bannerList" /> -->
+        <Carousel :list="bannerList" />
       </div>
       <div class="right">
         <div class="news">
@@ -80,9 +80,14 @@
 
 <script>
 import { mapState } from "vuex";
-import Swiper from "swiper";
+
+import Carousel from "@/components/Carousel";
+
 export default {
   name: "ListContainer",
+  components: {
+    Carousel,
+  },
   mounted() {
     // 发起请求mock模拟数据
     this.$store.dispatch("ahome/getBannerList");
