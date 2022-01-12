@@ -9,6 +9,13 @@ import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import Search from "@/pages/Search";
 
+import Detail from "@/pages/Detail";
+
+// 购物车
+import AddCartSuccess from "@/pages/AddCartSuccess";
+
+
+
 import Test from "@/components/Test";
 
 export default new VueRouter({
@@ -29,13 +36,36 @@ export default new VueRouter({
     name: "search",
     component: Search
   },
+
+  //详情
+  {
+    path: "/detail/:id",
+    name: "detail",
+    component: Detail
+  },
+
+  // 购物车
+
+  {
+    path: "/addcartsuccess",
+    name: "addcartsuccess",
+    component: AddCartSuccess
+  },
+
+
   {
     path: "/test",
     name: "test",
     component: Test
   },
+
+
   {
     path: "*",
     redirect: "/home"
-  }]
+  }],
+  // Vue-Router 滚动行为
+  scrollBehavior(to, from, savedPosition) {
+    return { y: 0 }
+  }
 })

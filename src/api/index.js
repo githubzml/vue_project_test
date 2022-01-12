@@ -33,3 +33,10 @@ export const reqFloors = () => mockAjax.get('/floors');
 
 export const reqGetSaerchinfo = (params) => request({ url: "/list", method: "POST", data: params })
 
+
+// 6. 获取商品详情数据
+export const reqGoodDetailInfoData = (id) => request.get('/item/' + id)
+
+// 7. 添加选中的商品到购物车成功页面
+export const reqAddOrUpdateCart = (skuId, skuNum) => request.post(`/cart/addToCart/${skuId}/${skuNum}`)
+

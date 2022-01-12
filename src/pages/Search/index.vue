@@ -73,9 +73,9 @@
               <li class="yui3-u-1-5" v-for="goods in goodsList" :key="goods.id">
                 <div class="list-wrap">
                   <div class="p-img">
-                    <a href="item.html" target="_blank">
-                      <img :src="goods.defaultImg"
-                    /></a>
+                    <router-link :to="`/detail/${goods.id}`">
+                      <img :src="goods.defaultImg" />
+                    </router-link>
                   </div>
                   <div class="price">
                     <strong>
@@ -112,13 +112,13 @@
           <!-- 分页器 -->
           <!-- 父亲组件给子组件传递数据 子组件使用props接收 -->
           <!-- 子组件给父组件通信使用自定义事件 -->
-          <!-- <Pagination
+          <Pagination
             :pageNo="seachKeyWords.pageNo"
             :pageSize="seachKeyWords.pageSize"
             :total="total"
             :continues="5"
             @getPageNo="getPageNo"
-          /> -->
+          />
         </div>
       </div>
     </div>
@@ -169,6 +169,10 @@ export default {
   computed: {
     ...mapState("asearch", ["searchList"]),
     ...mapGetters("asearch", ["attrsList", "goodsList", "trademarkList"]),
+
+    total() {
+      return this.searchList.total;
+    },
 
     //   attrsList
     //   goodsList

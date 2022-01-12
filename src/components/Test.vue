@@ -25,6 +25,22 @@
         </p>
       </li>
     </ul>
+    <div class="wrap">
+      <div class="box" @mousemove="handleMove($event)"></div>
+      <img src="./栎叶杜鹃.png" alt="" />
+      <div class="big">
+        <img
+          src="./栎叶杜鹃.png"
+          alt=""
+          :style="{ left: -2 * left + 'px', top: -2 * top + 'px' }"
+        />
+      </div>
+      <div
+        class="mask"
+        :style="{ left: left + 'px', top: top + 'px' }"
+        ref="mask"
+      ></div>
+    </div>
   </div>
 </template>
 
@@ -87,6 +103,8 @@ export default {
           ],
         },
       ],
+      left: 0,
+      top: 0,
     };
   },
   methods: {
@@ -115,6 +133,30 @@ export default {
         this.$router.push(location);
       }
     },
+    handleMove(event) {
+      // event.offsetX 鼠标距离监听移动元素的距离
+      let offsetX = event.offsetX;
+      let offsetY = event.offsetY;
+      let aa = this.$refs.mask.clientWidth;
+      let cc = aa / 2;
+
+      let x = offsetX - cc;
+      let y = offsetY - cc;
+      if (x < 0) x = 0;
+      if (x > aa) {
+        x = aa;
+      }
+
+      if (y < 0) y = 0;
+      if (y > aa) {
+        y = aa;
+      }
+
+      console.log("this.$refs.mask.clientHeight", this.$refs.mask.clientHeight);
+
+      this.left = x;
+      this.top = y;
+    },
   },
   mounted() {},
 };
@@ -129,6 +171,57 @@ ul {
     }
     > p {
     }
+  }
+}
+.wrap {
+  position: relative;
+  border: 1px solid #ccc;
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 400px;
+  height: 400px;
+  .box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .big {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+    img {
+      width: 200%;
+      max-width: 200%;
+      height: 200%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0, 255, 0, 0.3);
+    display: none;
+  }
+  .box:hover ~ .mask,
+  .box:hover ~ .big {
+    display: block;
   }
 }
 </style>
