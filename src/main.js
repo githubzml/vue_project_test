@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import ElementUI from 'element-ui';
 import App from './App.vue'
 
 import router from "./router"
@@ -7,9 +8,15 @@ import TypeNav from "./pages/Home/TypeNav"
 
 import store from "./store"
 
+
+
 import "@/mock/MockServer.js";
 
+import 'element-ui/lib/theme-chalk/index.css';
+
 import "swiper/css/swiper.css";
+
+
 
 import Carousel from "@/components/Carousel"
 
@@ -25,6 +32,8 @@ Vue.component(Carousel.name, Carousel);
 
 // 分页
 Vue.component(Pagination.name, Pagination);
+
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 

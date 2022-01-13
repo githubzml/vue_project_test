@@ -1,8 +1,10 @@
 import { reqGoodDetailInfoData, reqAddOrUpdateCart } from "../../api"
+import { getUUID } from "../../utils/uuid_token";
 export default {
   namespaced: true,
   state: {
-    goodDetailInfo: {}
+    goodDetailInfo: {},
+    uuid_token: getUUID()
   },
   mutations: {
     SAVE_GOOD_DETAIL_INFO(state, payload) {

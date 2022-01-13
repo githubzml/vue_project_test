@@ -3,6 +3,8 @@ import axios from "axios";
 import nprogress from "nprogress";
 import "nprogress/nprogress.css";
 
+import store from "@/store";
+
 // axios 的二次封
 const request = axios.create({
     baseURL: '/api',
@@ -10,6 +12,9 @@ const request = axios.create({
 })
 
 request.interceptors.request.use((config) => {
+    if (store.state.adetail.uuid_token) {
+        config.headers.userTempId = store.state.adetail.uuid_token;
+    }
     nprogress.start();
     return config
 })

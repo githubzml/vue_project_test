@@ -368,16 +368,17 @@ export default {
   },
   watch: {
     count(newValue) {
-      if (skuNumReg.test(newValue)) {
-        // 符合验证规则
-        this.count = newValue;
-        if (newValue > 200) {
-          this.count = 200;
-        }
-      } else {
-        // 其它不符合要求的数据，统统设置为1
-        this.count = 1;
-      }
+      // if (skuNumReg.test(newValue)) {
+      // 符合验证规则
+      this.count = newValue;
+      // if (newValue > 200) {
+      //   this.count = 200;
+      // }
+      // // }
+      // else {
+      //   // 其它不符合要求的数据，统统设置为1
+      //   this.count = 1;
+      // }
     },
   },
   methods: {
@@ -446,7 +447,8 @@ export default {
             skuNum: this.count,
           },
         });
-        
+
+        sessionStorage.setItem("skuInfo_key", JSON.stringify(this.skuInfo));
       } catch (error) {
         console.log("error", error);
       }

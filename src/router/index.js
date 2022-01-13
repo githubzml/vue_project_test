@@ -13,6 +13,8 @@ import Detail from "@/pages/Detail";
 
 // 购物车
 import AddCartSuccess from "@/pages/AddCartSuccess";
+// 购物车结算
+import ShopCart from "@/pages/ShopCart";
 
 
 
@@ -50,6 +52,13 @@ export default new VueRouter({
     path: "/addcartsuccess",
     name: "addcartsuccess",
     component: AddCartSuccess
+  },
+
+  // 购物车结算
+  {
+    path: "/shopCart",
+    name: "shopCart",
+    component: ShopCart
   },
 
 

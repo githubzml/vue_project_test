@@ -40,3 +40,14 @@ export const reqGoodDetailInfoData = (id) => request.get('/item/' + id)
 // 7. 添加选中的商品到购物车成功页面
 export const reqAddOrUpdateCart = (skuId, skuNum) => request.post(`/cart/addToCart/${skuId}/${skuNum}`)
 
+// 8. 获取服务器中的之前添加到购物车中的数据
+export const reqShopCartListData = () => request.get('/cart/cartList')
+
+// 9. 更改服务器端购物车中商品的选中与否的状态 
+export const reqChangeShopCartInfoState = (skuID, isChecked) => request.get(`/cart/checkCart/${skuID}/${isChecked}`)
+
+// 10. 删除一件购物车的商品
+export const reqDelOnShopCartInfo = (skuId) => request.delete(`/cart/deleteCart/${skuId}`)
+
+// 12. 批量删除购物车中选中的商品
+export const reqDelSelectedCartInfo = (cartInfo) => request.delete('/cart/batchDeleteCart', cartInfo)

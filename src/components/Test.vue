@@ -41,6 +41,9 @@
         ref="mask"
       ></div>
     </div>
+    <div class="aa"></div>
+
+    <div class="cc"></div>
   </div>
 </template>
 
@@ -223,5 +226,17 @@ ul {
   .box:hover ~ .big {
     display: block;
   }
+}
+.aa {
+  width: 200px;
+  height: 200px;
+  background: url("~@/assets/logo.png");
+  background-size: convert;
+}
+.cc {
+  width: 200px;
+  height: 200px;
+  background: url("/images/banner4.jpg");
+  background-size: convert;
 }
 </style>
