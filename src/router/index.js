@@ -20,7 +20,13 @@ import ShopCart from "@/pages/ShopCart";
 
 import Test from "@/components/Test";
 
-export default new VueRouter({
+import Cc from "@/components/Cc";
+
+
+
+import store from "@/store"
+
+const router = new VueRouter({
   routes: [{
     path: "/home",
     component: Home
@@ -68,6 +74,12 @@ export default new VueRouter({
     component: Test
   },
 
+  {
+    path: "/cc",
+    name: "cc",
+    component: Cc
+  },
+
 
   {
     path: "*",
@@ -78,3 +90,24 @@ export default new VueRouter({
     return { y: 0 }
   }
 })
+
+
+
+router.beforeEach((to, from, next) => {
+  let token = store.state.auser.token;
+  if (token) {
+    //防止回退
+    if (to.path == '/login') {
+      next("/home");
+      console.log('token0', token);
+    } else {
+      next();
+      console.log('token1', token);
+    }
+  } else {
+    next();
+    console.log('token2', token);
+  }
+})
+
+export default router;

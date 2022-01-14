@@ -88,7 +88,11 @@ export default {
     async login() {
       let { phone, password } = this;
       try {
-        await this.$store.dispatch("user/userLogin", { phone, password });
+        await this.$store.dispatch("auser/userLogin", {
+          phone,
+          password,
+        });
+
         let redirect = this.$route.query.redirect || "/";
         this.$router.push(redirect);
       } catch (error) {

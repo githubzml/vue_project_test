@@ -47,12 +47,18 @@ export default {
     // aa().then((res) => {
     //   // console.log("res", res);
     // });
-    console.log("this", this.$store.state);
+    console.log("ccc");
+    if (this.token) {
+      // 通过token获取用户信息
+      this.$store.dispatch("auser/getUserInfo");
+    }
   },
   computed: {
     ...mapState("ahome", ["num"]),
 
     ...mapState("ahome", ["floors"]),
+
+    ...mapState("auser", ["token"]),
   },
 };
 </script>

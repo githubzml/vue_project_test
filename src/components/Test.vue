@@ -44,6 +44,10 @@
     <div class="aa"></div>
 
     <div class="cc"></div>
+
+    <div class="dd">
+      <input type="text" @focus="nn" @blur="bb" v-model="ll" />
+    </div>
   </div>
 </template>
 
@@ -108,6 +112,7 @@ export default {
       ],
       left: 0,
       top: 0,
+      ll: 0,
     };
   },
   methods: {
@@ -159,6 +164,19 @@ export default {
 
       this.left = x;
       this.top = y;
+    },
+    nn() {
+      // 如果是数字类型 转化为字符串
+      if (typeof this.ll == "number") {
+        this.ll = this.ll.toString();
+      }
+      // ES6 includes 判断是否含有
+      if (this.ll.includes(".00")) {
+        this.ll = this.ll.split(".00")[0];
+      }
+    },
+    bb() {
+      this.ll = Number(this.ll).toFixed(2);
     },
   },
   mounted() {},

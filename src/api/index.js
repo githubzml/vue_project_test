@@ -51,3 +51,40 @@ export const reqDelOnShopCartInfo = (skuId) => request.delete(`/cart/deleteCart/
 
 // 12. 批量删除购物车中选中的商品
 export const reqDelSelectedCartInfo = (cartInfo) => request.delete('/cart/batchDeleteCart', cartInfo)
+
+// 11. 获取验证码的请求
+export const reqCode = (phone) => request.get(`/user/passport/sendCode/${phone}`)
+
+// 13. 实现用户注册
+export const reqRegister = (user) => {
+  return request({
+    url: '/user/passport/register',
+    method: 'post',
+    data: user
+  })
+}
+
+// 14. 实现用户登陆 就可以获取服务器发送过来的token 
+export const reqUserLogin = (user) => {
+  return request({
+    url: '/user/passport/login',
+    method: 'post',
+    data: user
+  })
+}
+
+// 根据token获取用户信息
+export const reqGetUserInfo = () => {
+  return request({
+    url: '/user/passport/auth/getUserInfo',
+    method: 'get'
+  })
+}
+
+// 15. 用户登出
+export const reqUserLogout = () => {
+  return request({
+    url: '/user/passport/logout',
+    method: 'get'
+  })
+}

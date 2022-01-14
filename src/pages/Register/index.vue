@@ -78,8 +78,9 @@ export default {
     async getCode() {
       //要发送请求拿验证码，就需要写三连环
       try {
-        const result = await this.$store.dispatch("user/getCode", this.phone);
+        const result = await this.$store.dispatch("auser/getCode", this.phone);
         this.code = result;
+        console.log("code", this.code);
       } catch (error) {
         alert("获取验证码失败" + error.message);
       }
@@ -87,7 +88,7 @@ export default {
     async register() {
       let { phone, code, password } = this;
       try {
-        await this.$store.dispatch("user/userRegister", {
+        await this.$store.dispatch("auser/userRegister", {
           phone,
           code,
           password,

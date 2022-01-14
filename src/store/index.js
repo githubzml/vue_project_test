@@ -10,17 +10,18 @@ import adetail from "./detail";
 
 import ashopcart from "./shopcart";
 
+// 验证码
+import auser from "./user";
+
 
 const bbb = new Vuex.Store({
   modules: {
     ahome,
     asearch,
     adetail,
-    ashopcart
+    ashopcart,
+    auser
   }
 })
-
-console.log('bbb', bbb);
-
 
 export default bbb;
