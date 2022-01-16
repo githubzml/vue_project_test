@@ -13,6 +13,8 @@ import ashopcart from "./shopcart";
 // 验证码
 import auser from "./user";
 
+import atrade from "./trade";
+
 
 const bbb = new Vuex.Store({
   modules: {
@@ -20,7 +22,8 @@ const bbb = new Vuex.Store({
     asearch,
     adetail,
     ashopcart,
-    auser
+    auser,
+    atrade
   }
 })
 

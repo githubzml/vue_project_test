@@ -88,3 +88,21 @@ export const reqUserLogout = () => {
     method: 'get'
   })
 }
+
+// 16. 结算
+export const reqUserAddressList = () => {
+  return request({
+    url: '/user/userAddress/auth/findUserAddressList',
+    method: 'get'
+  })
+}
+
+
+
+//17.获取交易信息
+export const reqTradeInfo = () => {
+  return request({
+    url: '/order/auth/trade',
+    method: 'get'
+  })
+}
