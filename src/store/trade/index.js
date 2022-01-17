@@ -15,16 +15,20 @@ const mutations = {
 const actions = {
     async getTradeInfo({ commit }) {
         const result = await reqTradeInfo()
-        if (result.code === 200) {
-            commit('RECEIVE_TRADEINFO', result.data)
+        console.log('result1', result.data);
+
+        if (result.data.code === 200) {
+            commit('RECEIVE_TRADEINFO', result.data.data)
         }
     },
 
     //获取收货地址
     async getUserAddressList({ commit }) {
         const result = await reqUserAddressList()
-        if (result.code === 200) {
-            commit('RECEIVE_USERADDRESSLIST', result.data)
+        console.log('result2', result.data);
+
+        if (result.data.code === 200) {
+            commit('RECEIVE_USERADDRESSLIST', result.data.data)
         }
     }
 }

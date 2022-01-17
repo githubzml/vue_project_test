@@ -24,6 +24,14 @@ import Cc from "@/components/Cc";
 
 import Trade from "@/pages/Trade";
 
+import Pay from "@/pages/Pay";
+
+
+
+
+import paySuccess from "@/pages/PaySuccess";
+
+
 
 
 
@@ -71,13 +79,24 @@ const router = new VueRouter({
         component: ShopCart
     },
 
+    // 结算
     {
         path: "/trade",
         name: "Trade",
         component: Trade
     },
+    // 支付
+    {
+        path: "/pay",
+        name: "pay",
+        component: Pay
+    },
 
-    
+    {
+        path: "/paySuccess",
+        name: "paySuccess",
+        component: paySuccess
+    },
 
 
     {

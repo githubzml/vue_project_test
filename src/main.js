@@ -22,6 +22,9 @@ import Carousel from "@/components/Carousel"
 
 import Pagination from "@/components/Pagination"
 
+import * as API from "@/api"
+
+
 
 // 注册全局组件的两种写法 
 Vue.component(TypeNav.name, TypeNav);
@@ -35,6 +38,7 @@ Vue.component(Pagination.name, Pagination);
 
 Vue.use(ElementUI);
 
+
 Vue.config.productionTip = false
 
 new Vue({
@@ -42,6 +46,7 @@ new Vue({
     beforeCreate() {
         //全局事件总线配置
         Vue.prototype.$bus = this;
+        Vue.prototype.$API = API;
     },
     router,
     store

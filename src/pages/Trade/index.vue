@@ -158,9 +158,9 @@ export default {
       };
       try {
         const result = await this.$API.reqSubmitOrder(tradeNo, tradeInfo);
-        if (result.code === 200) {
-          // this.orderId=result.data
-          this.$router.push("/pay?orderId=" + result.data);
+        if (result.data.code === 200) {
+          this.orderId = result.data;
+          this.$router.push("/pay?orderId=" + result.data.data);
         } else {
           alert("提交订单失败");
         }
