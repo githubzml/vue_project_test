@@ -31,10 +31,10 @@ import Pay from "@/pages/Pay";
 
 import paySuccess from "@/pages/PaySuccess";
 
+import Center from "@/pages/Center";
 
-
-
-
+import GroupOrder from "@/pages/Center/GroupOrder";
+import MyOrder from "@/pages/Center/MyOrder";
 
 import store from "@/store"
 
@@ -98,6 +98,28 @@ const router = new VueRouter({
         component: paySuccess
     },
 
+    // 个人中心
+    {
+        name: 'center',
+        path: '/center',
+        component: Center,
+        redirect: "/center/myorder",
+
+        // 二级路由不用写 "/"
+
+        children: [
+            {
+                name: "myorder",
+                path: "myorder",
+                component: MyOrder,
+            },
+            {
+                name: "grouporder",
+                path: "grouporder",
+                component: GroupOrder,
+            }
+        ]
+    },
 
     {
         path: "/test",
@@ -128,19 +150,14 @@ const router = new VueRouter({
 router.beforeEach(async (to, from, next) => {
     let token = store.state.auser.token;
     let aa = store.state.auser.userInfo;
-
-    console.log("token", token);
-    console.log("aa", aa);
     if (token) {
         //防止回退
         if (to.path == '/login') {
             next("/home");
-            console.log('token0', token);
         } else {
             if (aa.name) {
                 // 已经登录了 有用户信息
                 next();
-                console.log('token1', token);
             } else {
                 //已经登录了 没用户信息
                 try {

@@ -538,4 +538,79 @@ elementUI 使用 无
 
 ### p102
 
-个人中心
+个人中心 没
+
+# 2022-1-18
+
+### p103
+
+我的订单 没
+
+是否封装过组件 分页器 哈哈
+
+### p104
+
+未登录的导航守卫 没
+
+### p105
+
+用户登录 导航守卫 
+
+### p106 
+
+图片懒加载 vue-lazyload 实则就是个插件
+
+### p107
+
+vee-validate 表达验证 无
+
+### p108
+
+路由懒加载 ()=> import("...")
+
+之前 直接引入了 import ...
+
+访问了 加载 不访问 不加载
+
+现在是 用户访问了 才执行
+
+压缩 加密
+
+map文件 能线上定位哪行代码错误 这个原因完全可以在 开发环境把控 所以把map文件剔除
+
+### p109
+
+// 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
+  productionSourceMap: false, 
+
+  处理map文件
+
+### p110
+
+  centos
+
+购买服务器
+
+设置安全组 服务器的端口号打开
+
+xshell
+
+xftp
+
+pwd 绝对地址
+
+### p111
+
+安全组与xshell
+
+nginx服务器反向代理
+
+Xftp和Xshell免注册破解版
+
+https://www.cnblogs.com/zyy5/articles/13302202.html
+
+链接：https://pan.baidu.com/s/16mjbk5qHWmJSdqhKsrDaOQ
+提取码：k8g8
+
+### p112
+nginx 无

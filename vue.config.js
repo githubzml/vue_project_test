@@ -3,6 +3,8 @@ function resolve(dir) {
   return path.join(__dirname, dir)  //path.join(__dirname)设置绝对路径
 }
 module.exports = {
+  // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
+  productionSourceMap: false,
   // 服务器已经启动后自动打开浏览器
   devServer: {
     open: true,

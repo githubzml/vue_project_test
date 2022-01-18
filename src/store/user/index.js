@@ -16,7 +16,6 @@ export default {
     },
 
     USERLOGIN(state, token) {
-      console.log('777', token);
       state.token = token
     },
 
@@ -53,8 +52,6 @@ export default {
       let result = await reqUserLogin(user);
       if (result.data.code == 200) {
         commit("USERLOGIN", result.data.data.token)
-        console.log('666', result.data.data.token);
-
         setToken(result.data.data.token);
         return "ok";
       } else {

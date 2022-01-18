@@ -291,12 +291,12 @@ export default {
     // 进入的开始状态
     .sort-enter {
       height: 0px;
-      transform: rotate3d(); // 过渡动画
+      // transform: rotate3d(); // 过渡动画
     }
     // 进入的结束状态
     .sort-enter-to {
       height: 461px;
-      transform: rotate3d(); // 过渡动画
+      // transform: rotate3d(); // 过渡动画
     }
     // 定义动画时间，速率
     .sort-enter-active {

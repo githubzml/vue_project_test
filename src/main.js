@@ -36,7 +36,15 @@ Vue.component(Carousel.name, Carousel);
 // 分页
 Vue.component(Pagination.name, Pagination);
 
+import VueLazyload from 'vue-lazyload'
+ 
+
+
 Vue.use(ElementUI);
+
+// Vue.use(VueLazyload,{
+//     // loading:
+// })
 
 
 Vue.config.productionTip = false
