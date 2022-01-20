@@ -613,4 +613,11 @@ https://www.cnblogs.com/zyy5/articles/13302202.html
 提取码：k8g8
 
 ### p112
+
+nginx 无
+
+2022-1-19
+
+访问远端 操作服务器
+
 nginx 无
